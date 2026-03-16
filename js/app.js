@@ -1,10 +1,5 @@
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
-const currentYear = document.querySelector("#current-year");
-
-if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-}
 
 if (navToggle && siteNav) {
     navToggle.addEventListener("click", () => {
