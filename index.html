@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian Memory for AI | Persistent context for Claude, Copilot, ChatGPT, and more</title>
-    <meta name="description" content="Turn your Obsidian vault into persistent memory for AI assistants using plain Markdown. Open source, vendor-neutral, and built for real workflows.">
+    <title>Obsidian Memory for AI | Structured context for AI assistants in plain Markdown</title>
+    <meta name="description" content="A file-based system to give AI assistants persistent context using your Obsidian vault. Open source, plain Markdown, no dependencies.">
     <meta name="theme-color" content="#0f1221">
     <meta property="og:title" content="Obsidian Memory for AI">
-    <meta property="og:description" content="Persistent context for AI assistants using plain Markdown and your Obsidian vault.">
+    <meta property="og:description" content="Structured, persistent context for AI assistants. Plain Markdown, no lock-in.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Obsidian Memory for AI">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Obsidian Memory for AI">
-    <meta name="twitter:description" content="Make your AI start with context, not amnesia.">
+    <meta name="twitter:description" content="Structured context for AI assistants using your Obsidian vault.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -50,17 +50,16 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Persistent memory for AI assistants</p>
-                    <h1>Make your AI start with context, not amnesia.</h1>
+                    <p class="eyebrow">Context for AI assistants</p>
+                    <h1>Your AI doesn't know who you are. This fixes that.</h1>
                     <p class="hero-lead">
-                        Obsidian Memory for AI is an open-source system that turns your Obsidian vault into
-                        structured, reusable context for Claude, Copilot, ChatGPT, Cursor, and any assistant
-                        that can read files.
+                        A structured way to store context — projects, people, decisions, vocabulary — in
+                        plain Markdown inside your Obsidian vault, so any AI assistant can load it.
                     </p>
 
                     <div class="hero-actions">
-                        <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">Star the project</a>
-                        <a class="button button-secondary" href="guide.md">Read the full guide</a>
+                        <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub repo</a>
+                        <a class="button button-secondary" href="guide.md">Read the guide</a>
                     </div>
 
                     <div class="hero-meta">
@@ -70,17 +69,17 @@
                         >
                         <ul class="proof-points">
                             <li>Open source</li>
-                            <li>Markdown-native</li>
-                            <li>No vendor lock-in</li>
-                            <li>Built from real daily use</li>
+                            <li>Plain Markdown</li>
+                            <li>No dependencies</li>
+                            <li>Works with any AI</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="hero-card">
                     <div class="hero-card-top">
-                        <span class="pill">What you actually get</span>
-                        <span class="pill pill-muted">No fake magic</span>
+                        <span class="pill">Structure</span>
+                        <span class="pill pill-muted">Just files</span>
                     </div>
 
                     <pre class="vault-preview"><code>vault/
@@ -95,10 +94,10 @@
     `-- decisions/</code></pre>
 
                     <div class="hero-card-note">
-                        <strong>Your context stays in files you own.</strong>
+                        <strong>Files you own, in a format that will outlast any tool.</strong>
                         <p>
-                            This project does not claim to give AI human memory. It gives you a
-                            durable, maintainable way to load the right context at the right time.
+                            No database, no embeddings, no API. Markdown files in folders,
+                            readable by humans and machines alike.
                         </p>
                     </div>
                 </div>
@@ -108,19 +107,19 @@
         <section class="problem-strip">
             <div class="container strip-grid">
                 <article class="strip-card">
-                    <span class="strip-label">Without a system</span>
-                    <h2>Every session starts from zero.</h2>
+                    <span class="strip-label">The problem</span>
+                    <h2>You explain the same things every session.</h2>
                     <p>
-                        You keep re-explaining your projects, your preferences, your people, your shorthand,
-                        and the decisions that shaped your work.
+                        Who you are, what you're working on, why you made that decision three weeks ago,
+                        what "Val" means, which project is which. Every time.
                     </p>
                 </article>
                 <article class="strip-card strip-card-accent">
-                    <span class="strip-label">With this system</span>
-                    <h2>Your AI starts with structured context.</h2>
+                    <span class="strip-label">The fix</span>
+                    <h2>Put it in files. Load what's relevant.</h2>
                     <p>
-                        It can load your glossary, projects, current tasks, decision history, and working style
-                        from plain Markdown in your vault.
+                        Glossary, projects, people, tasks, decisions — structured in your vault,
+                        loaded on demand. The AI reads; you stop repeating yourself.
                     </p>
                 </article>
             </div>
@@ -130,36 +129,36 @@
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">How it works</p>
-                    <h2>Simple architecture. High leverage.</h2>
+                    <h2>Folders, files, and a loading order.</h2>
                     <p>
-                        The system is intentionally low-tech: a disciplined folder structure, a few key files,
-                        and clear loading rules that any capable AI can follow.
+                        There's no clever trick. You organize context into files with a consistent structure,
+                        and the AI follows rules about what to read first.
                     </p>
                 </div>
 
                 <div class="steps-grid">
                     <article class="step-card">
                         <span class="step-number">01</span>
-                        <h3>Store context in Markdown</h3>
+                        <h3>Write context as Markdown</h3>
                         <p>
-                            Put identity, projects, people, vocabulary, tasks, and durable decisions into
-                            human-readable files inside your Obsidian vault.
+                            Projects, people, vocabulary, tasks, decisions — each in its own file,
+                            with frontmatter for metadata. Human-readable, grep-friendly.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">02</span>
-                        <h3>Load only what matters</h3>
+                        <h3>Load selectively</h3>
                         <p>
-                            Use a master file plus a memory index so the AI reads the right files first and
-                            does not drown itself in unnecessary context.
+                            A master file and a memory index tell the AI what to read first and
+                            what to load only when relevant. Context windows are finite.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">03</span>
-                        <h3>Maintain it over time</h3>
+                        <h3>Keep it current</h3>
                         <p>
-                            The guide includes update and review routines so the system stays sharp instead of
-                            becoming another graveyard of stale notes.
+                            The guide includes review routines. Stale context is worse than no context,
+                            so maintenance is part of the design.
                         </p>
                     </article>
                 </div>
@@ -169,51 +168,51 @@
         <section id="features" class="section section-dark">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">Why people care</p>
-                    <h2>It respects both your workflow and your autonomy.</h2>
+                    <p class="eyebrow">Design choices</p>
+                    <h2>The tradeoffs are intentional.</h2>
                 </div>
 
                 <div class="feature-grid">
                     <article class="feature-card">
-                        <h3>Plain Markdown, not a black box</h3>
+                        <h3>Plain text over infrastructure</h3>
                         <p>
-                            Your memory lives in files you can inspect, edit, sync, back up, version, and move
-                            anywhere.
+                            No database, no vector store, no embeddings. Your context is in files you can
+                            read, edit, version, and move with standard tools.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Tool-agnostic by design</h3>
+                        <h3>Any AI that reads files</h3>
                         <p>
-                            Claude Code, Copilot, Cursor, ChatGPT, or any file-aware assistant can use the same
-                            underlying system.
+                            Claude Code, Copilot, Cursor, ChatGPT — the same files work across tools.
+                            You adapt the loading mechanism, not the data.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Built for real projects</h3>
+                        <h3>Tested in daily use</h3>
                         <p>
-                            This is not a thought experiment. It was shaped by daily use across writing,
-                            software, personal context, and long-running work.
+                            This came from actual work — writing, software, personal context, long-running
+                            projects. The structure reflects what survived contact with reality.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Decision memory matters</h3>
+                        <h3>Decisions, not just state</h3>
                         <p>
-                            The system keeps the rationale behind meaningful changes, so future sessions retain
-                            the "why", not just the latest state.
+                            The system stores the rationale behind changes. Future sessions get the "why",
+                            not just the latest snapshot.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Low ceremony, high clarity</h3>
+                        <h3>Minimal moving parts</h3>
                         <p>
-                            You do not need a database, embeddings, vector infra, or a proprietary app to get
-                            useful persistent context.
+                            Folders, Markdown files, frontmatter, a loading order. That's the entire stack.
+                            Complexity goes into the content, not the plumbing.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Plugin-ready extensions</h3>
+                        <h3>Extensible via plugins</h3>
                         <p>
-                            The repo also shows how to package the workflow as installable commands and skills
-                            for environments that support plugins.
+                            The repo includes examples for packaging workflows as installable commands
+                            and skills, for tools that support them.
                         </p>
                     </article>
                 </div>
@@ -224,25 +223,25 @@
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">Compatibility</p>
-                    <h2>Use one memory system across multiple AI tools.</h2>
+                    <h2>Same files, different tools.</h2>
                 </div>
 
                 <div class="compatibility-grid">
                     <article class="compat-card">
                         <h3>Claude Code</h3>
-                        <p>Native fit via `CLAUDE.md` and related memory files.</p>
+                        <p>Reads <code>CLAUDE.md</code> natively. Best integration out of the box.</p>
                     </article>
                     <article class="compat-card">
                         <h3>GitHub Copilot</h3>
-                        <p>Works with `COPILOT.md`, workspace context, and plugin-based flows.</p>
+                        <p>Uses <code>COPILOT.md</code> and workspace context. Plugin flows available.</p>
                     </article>
                     <article class="compat-card">
                         <h3>ChatGPT / Claude.ai</h3>
-                        <p>Attach or paste the relevant files at the start of a session.</p>
+                        <p>Attach or paste the relevant files when starting a session.</p>
                     </article>
                     <article class="compat-card">
-                        <h3>Cursor and other IDE agents</h3>
-                        <p>Adapt the same memory files into their preferred context mechanism.</p>
+                        <h3>Cursor and others</h3>
+                        <p>Adapt the files to each tool's context mechanism. The data doesn't change.</p>
                     </article>
                 </div>
             </div>
@@ -251,28 +250,28 @@
         <section id="honest" class="section section-honest">
             <div class="container honest-grid">
                 <div>
-                    <p class="eyebrow">Honest positioning</p>
-                    <h2>What this is, and what it is not.</h2>
+                    <p class="eyebrow">Scope</p>
+                    <h2>What you get and what you don't.</h2>
                 </div>
 
                 <div class="honest-columns">
                     <article class="honest-card honest-card-yes">
-                        <h3>What it is</h3>
+                        <h3>Included</h3>
                         <ul>
-                            <li>A documented system for persistent AI context</li>
-                            <li>A reusable structure for tasks, projects, people, and decisions</li>
-                            <li>A way to reduce re-explaining yourself across sessions</li>
-                            <li>An open-source guide you can adapt to your own vault</li>
+                            <li>A folder structure for persistent context across AI sessions</li>
+                            <li>File templates for projects, people, decisions, and vocabulary</li>
+                            <li>Loading rules so the AI reads selectively, not everything</li>
+                            <li>Maintenance routines to keep context accurate over time</li>
                         </ul>
                     </article>
 
                     <article class="honest-card honest-card-no">
-                        <h3>What it is not</h3>
+                        <h3>Not included</h3>
                         <ul>
-                            <li>Not autonomous memory injection into every AI product</li>
-                            <li>Not mind reading, not AGI, not a replacement for judgment</li>
-                            <li>Not a promise that every assistant will behave identically</li>
-                            <li>Not zero-maintenance; the system works because you review it</li>
+                            <li>Automatic memory — you maintain the files, that's the point</li>
+                            <li>Guaranteed behavior — AI tools vary; the context is consistent</li>
+                            <li>A product — this is a system you run yourself</li>
+                            <li>Magic — it's structured text, and that's enough</li>
                         </ul>
                     </article>
                 </div>
@@ -282,11 +281,11 @@
         <section class="section">
             <div class="container cta-panel">
                 <div>
-                    <p class="eyebrow">Start with the guide</p>
-                    <h2>If you use AI seriously, this will probably change your workflow.</h2>
+                    <p class="eyebrow">Get started</p>
+                    <h2>Read the guide, adapt the structure, start using it.</h2>
                     <p>
-                        Read the guide, adapt the structure to your vault, and keep your context in formats you
-                        still control five years from now.
+                        The whole system is in the repo. Fork it, copy what works,
+                        change what doesn't. It's Markdown — you'll figure it out.
                     </p>
                 </div>
                 <div class="cta-actions">
@@ -301,25 +300,25 @@
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">FAQ</p>
-                    <h2>The obvious questions</h2>
+                    <h2>Questions</h2>
                 </div>
 
                 <div class="faq-list">
                     <details class="faq-item">
-                        <summary>Do I need Obsidian plugins to use this?</summary>
-                        <p>No. The core system is just files and folders in an Obsidian vault. Obsidian is the home, not a technical dependency.</p>
+                        <summary>Do I need Obsidian plugins?</summary>
+                        <p>No. Obsidian is where the files live, not a technical dependency. The system is just folders and Markdown.</p>
                     </details>
                     <details class="faq-item">
                         <summary>Does this only work with Claude?</summary>
-                        <p>No. Claude Code is a strong fit, but the system is intentionally vendor-neutral. Any assistant that can read relevant files can use it.</p>
+                        <p>Claude Code has the best native integration, but the files work with any AI that can read them. The guide covers multiple tools.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Will this make an AI remember everything automatically?</summary>
-                        <p>No. It gives you a disciplined way to provide durable context. The quality still depends on the tool, the prompt, and what files you load.</p>
+                        <summary>Will the AI remember everything automatically?</summary>
+                        <p>No. You maintain the files, you choose what to load. The AI reads structured context — it doesn't build it for you.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Why not use a dedicated memory product instead?</summary>
-                        <p>You can. This project exists for people who want open formats, inspectable data, and a workflow they fully control.</p>
+                        <summary>Why not use a dedicated memory product?</summary>
+                        <p>If one works for you, use it. This is for people who prefer open formats and files they control.</p>
                     </details>
                 </div>
             </div>
@@ -330,14 +329,14 @@
         <div class="container footer-grid">
             <div>
                 <strong>Obsidian Memory for AI</strong>
-                <p>Persistent AI context with plain Markdown, open structure, and no lock-in.</p>
+                <p>Structured context for AI assistants. Plain Markdown, open source.</p>
             </div>
             <div class="footer-links">
                 <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub</a>
                 <a href="guide.md">Guide</a>
                 <a href="plugin-guide.md">Plugin guide</a>
             </div>
-            <p class="footer-note">Built from real-world use. Copyright <span id="current-year"></span>.</p>
+            <p class="footer-note">Copyright <span id="current-year"></span>.</p>
         </div>
     </footer>
 
