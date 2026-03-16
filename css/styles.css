@@ -551,26 +551,6 @@ code {
     color: var(--muted);
 }
 
-.footer-bmc {
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.bmc-link {
-    display: inline-block;
-    padding: 0.6rem 1.4rem;
-    background: var(--accent-strong);
-    color: #fff;
-    border-radius: 0.6rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: opacity 0.2s;
-}
-
-.bmc-link:hover {
-    opacity: 0.85;
-}
-
 .site-footer {
     padding: 2.2rem 0 3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
