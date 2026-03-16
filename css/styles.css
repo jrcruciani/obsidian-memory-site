@@ -551,6 +551,11 @@ code {
     color: var(--muted);
 }
 
+#bmc-wbtn {
+    right: 18px !important;
+    left: auto !important;
+}
+
 .site-footer {
     padding: 2.2rem 0 3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
