@@ -552,8 +552,9 @@ code {
 }
 
 #bmc-wbtn {
-    right: 18px !important;
-    left: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
 }
 
 .site-footer {
