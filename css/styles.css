@@ -471,6 +471,85 @@ code {
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.example-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.45fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.example-tree {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+}
+
+.example-tree-header {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.example-preview {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.example-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.example-tab {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.example-tab:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.example-tab.is-active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: rgba(167, 139, 250, 0.06);
+}
+
+.example-pane {
+    display: none;
+    padding: 1.2rem;
+}
+
+.example-pane.is-active {
+    display: block;
+}
+
+.example-pane .vault-preview {
+    font-size: 0.82rem;
+    line-height: 1.55;
+}
+
+.example-cta {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
 .section-honest {
     background:
         radial-gradient(circle at top left, rgba(167, 139, 250, 0.08), transparent 28%),
@@ -585,7 +664,8 @@ code {
     .feature-grid,
     .steps-grid,
     .strip-grid,
-    .footer-grid {
+    .footer-grid,
+    .example-grid {
         grid-template-columns: 1fr;
     }
 

@@ -38,6 +38,7 @@
 
             <nav id="site-nav" class="site-nav" aria-label="Primary">
                 <a href="#how-it-works">How it works</a>
+                <a href="#example">Example</a>
                 <a href="#features">Why it works</a>
                 <a href="#honest">What it is not</a>
                 <a href="#faq">FAQ</a>
@@ -59,8 +60,8 @@
 
                     <div class="hero-actions">
                         <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub repo</a>
+                        <a class="button button-secondary" href="#example">See it in action</a>
                         <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/guide.md" target="_blank" rel="noreferrer">Read the guide</a>
-                        <a class="button button-secondary" href="https://buymeacoffee.com/jrcruciani" target="_blank" rel="noreferrer">🍕 Buy me a pizza</a>
                     </div>
 
                     <div class="hero-meta">
@@ -158,6 +159,137 @@
                             so maintenance is part of the design.
                         </p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="example" class="section section-dark">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">See it in action</p>
+                    <h2>A complete vault, not a template.</h2>
+                    <p>
+                        The repo includes a working example — a fictional art conservator who maps
+                        medieval pigment recipes to spectroscopy data. Different domain, same system.
+                    </p>
+                </div>
+
+                <div class="example-grid">
+                    <div class="example-tree">
+                        <div class="example-tree-header">
+                            <span class="pill">Elena Voss</span>
+                            <span class="pill pill-muted">Fictional example</span>
+                        </div>
+                        <pre class="vault-preview"><code>minimal-vault/
+|-- CLAUDE.md
+|-- TASKS.md
+`-- memory/
+    |-- ContextSummary.md
+    |-- glossary.md
+    |-- context/
+    |   |-- professional.md
+    |   `-- personality.md
+    |-- people/
+    |   |-- marta-delvaux.md
+    |   `-- tobias-ackermann.md
+    |-- projects/
+    |   |-- concordance.md
+    |   `-- gallery-work.md
+    `-- decisions/
+        |-- ContextSummary.md
+        `-- DEC-001 - Concordance data format.md</code></pre>
+                    </div>
+
+                    <div class="example-preview">
+                        <div class="example-tabs">
+                            <button class="example-tab is-active" data-target="tab-claude">CLAUDE.md</button>
+                            <button class="example-tab" data-target="tab-glossary">glossary.md</button>
+                            <button class="example-tab" data-target="tab-decision">DEC-001</button>
+                        </div>
+
+                        <div class="example-pane is-active" id="tab-claude">
+                            <pre class="vault-preview"><code># Context for AI sessions
+
+## Who I am
+- **Name:** Elena Voss
+- **Role:** Art conservator and pigment researcher
+- **Base:** Berlin, Germany (studio in Kreuzberg)
+- **Day job:** Senior conservator at the Gemäldegalerie
+- **Side project:** Reverse-engineering historical pigment
+  recipes using spectroscopy data and period source texts
+
+## How to interact with me
+- **Tone:** Direct, technical when needed, no hand-holding
+- **I value:** Precision in terminology, proper citation
+- **When I say "the manuscript"** I mean Strasbourg MS
+  (15th c.) unless I specify otherwise
+
+## Vault structure
+- Research/ — Pigment analysis, treatise translations
+- Concordance/ — The mapping project: recipes → spectra
+- Gallery/ — Work notes, condition reports
+- memory/ — AI memory system (this folder)</code></pre>
+                        </div>
+
+                        <div class="example-pane" id="tab-glossary">
+                            <pre class="vault-preview"><code>## Acronyms
+| Term | Meaning                              |
+|------|--------------------------------------|
+| XRF  | X-ray fluorescence                   |
+| FORS | Fiber optic reflectance spectroscopy |
+| GG   | Gemäldegalerie                       |
+| LTY  | Lead-tin yellow                      |
+
+## Internal terms
+| Term          | Meaning                              |
+|---------------|--------------------------------------|
+| Concordance   | Pigment recipe → spectroscopy project|
+| the manuscript| Strasbourg MS (15th c.)              |
+| Gallery 5     | Current Cranach survey assignment     |
+| Ghent samples | XRF dataset from KIK-IRPA collab     |
+
+## Nicknames
+| Nickname   | Person                               |
+|------------|--------------------------------------|
+| Tobias     | Tobias Ackermann, lab colleague      |
+| Dr. Krause | Dr. Ingrid Krause, department head   |
+| Marta      | Marta Delvaux, KIK-IRPA Brussels    |</code></pre>
+                        </div>
+
+                        <div class="example-pane" id="tab-decision">
+                            <pre class="vault-preview"><code># DEC-001 - Concordance data format
+
+**Status:** Accepted
+**Date:** 2026-03-16
+**Scope:** Concordance project
+
+## Context
+The Concordance project needs a data format for
+storing recipe-to-spectrum mappings. Marta suggested
+SQLite. Tobias mentioned Airtable.
+
+## Decision
+Use Markdown files (one per entry) with structured
+headings + companion CSV files for spectral data.
+
+## Alternatives considered
+- **SQLite** — Better for queries, but adds tooling
+  dependency. Breaks "everything in Obsidian" principle.
+- **Airtable** — Good UI, but proprietary and cloud-
+  dependent. No wikilinks, no version control.
+- **JSON** — Machine-readable but painful to edit by
+  hand. Markdown is both human- and machine-readable.
+
+## Consequences
+- Entries are part of the Obsidian knowledge graph
+- Querying requires grep or Python, not SQL
+- Revisit if dataset grows past 500 entries</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-cta">
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/minimal-vault" target="_blank" rel="noreferrer">Browse the full example on GitHub</a>
                 </div>
             </div>
         </section>
@@ -286,9 +418,11 @@
                     </p>
                 </div>
                 <div class="cta-actions">
-                    <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/guide.md" target="_blank" rel="noreferrer">Read guide</a>
-                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/plugin-guide.md" target="_blank" rel="noreferrer">See plugin guide</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/guide.md" target="_blank" rel="noreferrer">Read guide</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/minimal-vault" target="_blank" rel="noreferrer">See example vault</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/plugin-guide.md" target="_blank" rel="noreferrer">Plugin guide</a>
                     <a class="button button-tertiary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub repo</a>
+                    <a class="button button-primary" href="https://buymeacoffee.com/jrcruciani" target="_blank" rel="noreferrer">🍕 Buy me a pizza</a>
                 </div>
             </div>
         </section>
@@ -314,8 +448,19 @@
                         <p>No. You maintain the files, you choose what to load. The AI reads structured context — it doesn't build it for you.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Why not use a dedicated memory product?</summary>
-                        <p>If one works for you, use it. This is for people who prefer open formats and files they control.</p>
+                        <summary>Why not use a vector database or a dedicated memory product?</summary>
+                        <p>
+                            Different layer. A vector database is good for semantic search over thousands of documents.
+                            This system handles the 50–500 files that define <em>who you are</em> — identity, preferences,
+                            active projects, people, decisions. That kind of curated personal context doesn't need
+                            embeddings; it needs structure and transparency.
+                        </p>
+                        <p>
+                            With Markdown you get full visibility into what the AI "knows", version control via git,
+                            zero infrastructure, and portability across any AI tool that reads text. A vector store
+                            gives you none of that. If you're already running RAG for other reasons, this system
+                            complements it — it's the personal layer that RAG is bad at.
+                        </p>
                     </details>
                 </div>
             </div>
@@ -331,6 +476,7 @@
             <div class="footer-links">
                 <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub</a>
                 <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/guide.md" target="_blank" rel="noreferrer">Guide</a>
+                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
                 <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/plugin-guide.md" target="_blank" rel="noreferrer">Plugin guide</a>
             </div>
         </div>
