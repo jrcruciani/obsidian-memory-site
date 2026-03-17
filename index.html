@@ -86,6 +86,8 @@
 |-- TASKS.md
 `-- memory/
     |-- glossary.md
+    |-- working-context.md
+    |-- recent-sessions.md
     |-- context/
     |-- people/
     |-- projects/
@@ -145,10 +147,11 @@
                     </article>
                     <article class="step-card">
                         <span class="step-number">02</span>
-                        <h3>Load selectively</h3>
+                        <h3>Load in tiers</h3>
                         <p>
-                            A master file and a memory index tell the AI what to read first and
-                            what to load only when relevant. Context windows are finite.
+                            An OS-inspired memory hierarchy: always-on identity, a mutable working
+                            context that the AI updates each session, and reference files loaded only
+                            when the topic requires them.
                         </p>
                     </article>
                     <article class="step-card">
@@ -185,6 +188,8 @@
 |-- TASKS.md
 `-- memory/
     |-- ContextSummary.md
+    |-- working-context.md
+    |-- recent-sessions.md
     |-- glossary.md
     |-- context/
     |   |-- professional.md
@@ -331,10 +336,11 @@ headings + companion CSV files for spectral data.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Minimal moving parts</h3>
+                        <h3>OS-inspired memory hierarchy</h3>
                         <p>
-                            Folders, Markdown files, frontmatter, a loading order. That's the entire stack.
-                            Complexity goes into the content, not the plumbing.
+                            Three tiers — always-on identity, a mutable working context that the AI rewrites
+                            each session, and reference files loaded on demand. Inspired by
+                            <a href="https://research.memgpt.ai" target="_blank" rel="noreferrer">MemGPT</a>, implemented in plain text.
                         </p>
                     </article>
                     <article class="feature-card">
@@ -397,7 +403,7 @@ headings + companion CSV files for spectral data.
                     <article class="honest-card honest-card-no">
                         <h3>Not included</h3>
                         <ul>
-                            <li>Automatic memory — you maintain the files, that's the point</li>
+                            <li>Fully automatic memory — the AI proposes updates, you approve them</li>
                             <li>Guaranteed behavior — AI tools vary; the context is consistent</li>
                             <li>A product — this is a system you run yourself</li>
                             <li>Magic — it's structured text, and that's enough</li>
