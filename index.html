@@ -51,11 +51,11 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Context for AI assistants</p>
+                    <p class="eyebrow">Context for AI assistants · v2.0</p>
                     <h1>Your AI doesn't know who you are. This fixes that.</h1>
                     <p class="hero-lead">
-                        A structured way to store context — projects, people, decisions, vocabulary — in
-                        plain Markdown inside your Obsidian vault, so any AI assistant can load it.
+                        A persistent, compounding wiki — maintained by your AI, directed by you — in
+                        plain Markdown inside your Obsidian vault. Three layers, four operations, zero infrastructure.
                     </p>
 
                     <div class="hero-actions">
@@ -84,10 +84,16 @@
 |-- CLAUDE.md
 |-- COPILOT.md
 |-- TASKS.md
+|-- sources/
+|   |-- articles/
+|   `-- notes/
 `-- memory/
+    |-- schema.md
+    |-- index.md
+    |-- log.md
     |-- glossary.md
     |-- working-context.md
-    |-- recent-sessions.md
+    |-- insights/
     |-- context/
     |-- people/
     |-- projects/
@@ -139,36 +145,39 @@
                 <div class="steps-grid">
                     <article class="step-card">
                         <span class="step-number">01</span>
-                        <h3>Write context as Markdown</h3>
+                        <h3>Three layers</h3>
                         <p>
-                            Projects, people, vocabulary, tasks, decisions — each in its own file,
-                            with frontmatter for metadata. Human-readable, grep-friendly.
+                            <strong>Sources</strong> (raw inputs the AI reads but never modifies),
+                            <strong>Wiki</strong> (knowledge pages the AI maintains), and
+                            <strong>Schema</strong> (your identity and loading rules). Simple, separated, version-controlled.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">02</span>
-                        <h3>Load in tiers</h3>
+                        <h3>Four operations</h3>
                         <p>
-                            An OS-inspired memory hierarchy: always-on identity, a mutable working
-                            context that the AI updates each session, and reference files loaded only
-                            when the topic requires them.
+                            <strong>Ingest</strong> sources into wiki pages.
+                            <strong>Query</strong> the wiki and file insights back.
+                            <strong>Lint</strong> for contradictions and gaps.
+                            <strong>Log</strong> everything in a grep-able record.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">03</span>
-                        <h3>React to context</h3>
+                        <h3>Tiered loading + triggers</h3>
                         <p>
-                            Formalized triggers detect keywords in conversation and load the right files
-                            automatically. Interaction modes calibrate tone — logistics, writing, research —
-                            so the AI adapts to what you're actually doing.
+                            An OS-inspired memory hierarchy loads identity first, then working state, then
+                            reference files on demand. Keyword triggers detect context and load the right files
+                            automatically.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">04</span>
-                        <h3>Keep it current</h3>
+                        <h3>Knowledge compounds</h3>
                         <p>
-                            The guide includes review routines. Stale context is worse than no context,
-                            so maintenance is part of the design.
+                            Every session, every source, every good answer makes the wiki richer.
+                            The AI handles the bookkeeping — cross-referencing, consistency, maintenance.
+                            You direct the inquiry.
                         </p>
                     </article>
                 </div>
@@ -195,22 +204,23 @@
                         <pre class="vault-preview"><code>minimal-vault/
 |-- CLAUDE.md
 |-- TASKS.md
+|-- sources/
+|   `-- articles/
+|       `-- venetian-pigment-study.md
 `-- memory/
-    |-- ContextSummary.md
-    |-- working-context.md
-    |-- recent-sessions.md
+    |-- schema.md
+    |-- index.md
+    |-- log.md
     |-- glossary.md
+    |-- working-context.md
     |-- context/
     |   |-- professional.md
     |   `-- personality.md
     |-- people/
-    |   |-- marta-delvaux.md
-    |   `-- tobias-ackermann.md
     |-- projects/
-    |   |-- concordance.md
-    |   `-- gallery-work.md
+    |-- insights/
+    |   `-- uv-threshold-revision.md
     `-- decisions/
-        |-- ContextSummary.md
         `-- DEC-001 - Concordance data format.md</code></pre>
                     </div>
 
@@ -438,7 +448,9 @@ headings + companion CSV files for spectral data.
                     <h2>Read the guide, adapt the structure, start using it.</h2>
                     <p>
                         The whole system is in the repo. Fork it, copy what works,
-                        change what doesn't. It's Markdown — you'll figure it out.
+                        change what doesn't. <strong>This is a foundation to build upon — there is no single
+                        correct method.</strong> Adapt it to your workflow, ignore what doesn't fit, build something better.
+                        It's Markdown — you'll figure it out.
                     </p>
                 </div>
                 <div class="cta-actions">
@@ -469,7 +481,7 @@ headings + companion CSV files for spectral data.
                     </details>
                     <details class="faq-item">
                         <summary>Will the AI remember everything automatically?</summary>
-                        <p>No. You maintain the files, you choose what to load. The AI reads structured context — it doesn't build it for you.</p>
+                        <p>It maintains the wiki — you direct it. When you add a source, the AI processes it into wiki pages. When a conversation produces a valuable insight, it proposes filing it. You approve what stays. It's collaborative, not automatic.</p>
                     </details>
                     <details class="faq-item">
                         <summary>Why not use a vector database or a dedicated memory product?</summary>
@@ -494,8 +506,14 @@ headings + companion CSV files for spectral data.
     <footer class="site-footer">
         <div class="container footer-grid">
             <div>
-                <strong>Obsidian Memory for AI</strong>
+                <strong>Obsidian Memory for AI</strong> <span style="opacity:.5">v2.0</span>
                 <p>Structured context for AI assistants. Plain Markdown, open source.</p>
+                <p style="font-size:.85em;opacity:.7;margin-top:.5em">
+                    Inspired by <a href="https://research.memgpt.ai" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">MemGPT</a>,
+                    <a href="https://github.com/vineetkishore01/Chetna" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">Chetna</a>,
+                    <a href="https://github.com/kitfoxs/open-her-os" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">Open-Her OS</a>, and
+                    <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">Andrej Karpathy</a>'s LLM wiki pattern.
+                </p>
             </div>
             <div class="footer-links">
                 <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub</a>
