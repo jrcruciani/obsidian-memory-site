@@ -359,8 +359,8 @@ h3 {
 }
 
 h1 {
-    max-width: 12ch;
-    font-size: clamp(3rem, 10vw, 5.8rem);
+    max-width: 100%;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
 }
 
 h2 {
@@ -383,6 +383,7 @@ h3 {
     min-width: 0;
 }
 
+.hero-subhead,
 .hero-lead,
 .section-heading p,
 .story-card p,
@@ -391,9 +392,18 @@ h3 {
     color: var(--muted-strong);
 }
 
+.site-main .hero-subhead {
+    max-width: 26ch;
+    margin: 0.75rem 0 0;
+    font-family: var(--font-ui);
+    font-size: clamp(1.05rem, 2.1vw, 1.4rem);
+    line-height: 1.22;
+    letter-spacing: -0.035em;
+}
+
 .hero-lead {
     max-width: 61ch;
-    margin: 1rem 0 0;
+    margin: 1.1rem 0 0;
     font-size: 1.04rem;
 }
 
