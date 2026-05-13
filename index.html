@@ -3,87 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian Memory for AI | Atomic Markdown Memory for AI agents</title>
+    <title>Agent Memory | Atomic Markdown Memory for AI agents</title>
     <meta name="description" content="A portable Obsidian-compatible memory protocol for AI agents: typed Markdown facts, append-only events, generated views, linting, and v3.1 cooperative write envelopes.">
-    <meta name="theme-color" content="#0f1221">
-    <meta property="og:title" content="Obsidian Memory for AI">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta property="og:title" content="Agent Memory">
     <meta property="og:description" content="Atomic Markdown Memory for AI agents. Plain files, typed facts, generated views, and v3.1 agentic hardening.">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Obsidian Memory for AI">
+    <meta property="og:site_name" content="Agent Memory">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Obsidian Memory for AI">
+    <meta name="twitter:title" content="Agent Memory">
     <meta name="twitter:description" content="Atomic Markdown Memory for AI agents. Plain Markdown, no database, no lock-in.">
+    <link rel="canonical" href="https://agentmemory.site/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/styles.css?v=3.1">
+    <link rel="stylesheet" href="css/styles.css?v=3.2">
 </head>
 <body>
-    <div class="page-glow page-glow-a"></div>
-    <div class="page-glow page-glow-b"></div>
+    <a class="skip-link" href="#content">Skip to content</a>
 
-    <header class="site-header">
-        <div class="container nav-wrap">
-            <a class="brand" href="#top" aria-label="Obsidian Memory for AI home">
-                <span class="brand-mark">OM</span>
-                <span class="brand-text">
-                    <strong>Obsidian Memory for AI</strong>
-                    <span>Atomic Markdown Memory</span>
-                </span>
-            </a>
+    <div class="site-shell">
+        <aside class="site-sidebar" aria-label="Site">
+            <div class="sidebar-top">
+                <a class="brand" href="#top" aria-label="Agent Memory home">
+                    <span class="brand-mark">AM</span>
+                    <span class="brand-text">
+                        <strong>Agent Memory</strong>
+                        <span>Obsidian Memory for AI</span>
+                    </span>
+                </a>
 
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="sr-only">Toggle navigation</span>
-            </button>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                    <span class="nav-toggle-label">Menu</span>
+                    <span class="nav-toggle-lines" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
 
             <nav id="site-nav" class="site-nav" aria-label="Primary">
-                <a href="#how-it-works">How it works</a>
-                <a href="#v31">v3.1</a>
-                <a href="#example">Example</a>
-                <a href="#compatibility">Compatibility</a>
+                <a href="#how-it-works">Protocol</a>
+                <a href="#v31">v3.1 hardening</a>
+                <a href="#example">Reference vault</a>
+                <a href="#features">Tradeoffs</a>
+                <a href="#compatibility">Agents</a>
                 <a href="#faq">FAQ</a>
-                <a class="nav-cta" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">View on GitHub</a>
             </nav>
-        </div>
-    </header>
 
-    <main id="top">
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="hero-copy">
-                    <p class="eyebrow">Stable v3.0 core + v3.1 agentic hardening</p>
-                    <h1>Memory that agents can read, propose, and audit.</h1>
-                    <p class="hero-lead">
-                        Obsidian Memory for AI is a Markdown-first memory protocol: atomic facts,
-                        append-only events, generated views, portable linting, and cooperative write
-                        envelopes for agents. No database. No daemon. No vector store.
-                    </p>
+            <div class="sidebar-card" aria-label="Current release">
+                <span class="meta-label">Current</span>
+                <strong>v3.0 stable core</strong>
+                <p>v3.1 adds cooperative write envelopes, claims, preconditions, and receipts.</p>
+            </div>
 
-                    <div class="hero-actions">
-                        <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub repo</a>
-                        <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">Read SPEC v3</a>
-                        <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Open example vault</a>
+            <div class="sidebar-actions" aria-label="Primary links">
+                <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub repo</a>
+                <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">SPEC v3</a>
+                <button class="button button-secondary theme-toggle" type="button" data-theme-toggle aria-label="Theme: auto">Theme: <span data-theme-label>auto</span></button>
+            </div>
+        </aside>
+
+        <main id="content" class="site-main">
+            <section id="top" class="hero feed-section" aria-labelledby="hero-title">
+                <div class="section-kicker">00 / status</div>
+                <div class="hero-layout">
+                    <div class="hero-copy">
+                        <p class="eyebrow">Stable v3.0 core + v3.1 agentic hardening</p>
+                        <h1 id="hero-title">Memory that agents can read, propose, and audit.</h1>
+                        <p class="hero-lead">
+                            Obsidian Memory for AI is a Markdown-first memory protocol: atomic facts,
+                            append-only events, generated views, portable linting, and cooperative write
+                            envelopes for agents. No database. No daemon. No vector store.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">Open repo</a>
+                            <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
+                            <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/migration-v3.md" target="_blank" rel="noreferrer">Migration</a>
+                        </div>
                     </div>
 
-                    <div class="hero-meta">
-                        <ul class="proof-points">
-                            <li>Plain Markdown</li>
-                            <li>Typed facts</li>
-                            <li>Generated views</li>
-                            <li>Conflict-aware</li>
-                            <li>Works with any AI</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="hero-card">
-                    <div class="hero-card-top">
-                        <span class="pill">v3 vault shape</span>
-                        <span class="pill pill-muted">Just files</span>
-                    </div>
-
-                    <pre class="vault-preview"><code>vault/
+                    <div class="status-card">
+                        <span class="meta-label">Protocol shape</span>
+                        <pre class="vault-preview"><code>vault/
 |-- CLAUDE.md
 |-- COPILOT.md
 |-- AGENTS.md
@@ -91,11 +92,8 @@
 `-- memory/
     |-- schema/
     |-- facts/
-    |   `-- elena-voss/role.md
     |-- events/2026-05-11/
     |-- _views/
-    |   |-- by-entity/elena-voss.md
-    |   `-- conflicts.md
     |-- _inbox/agent-id/ops/
     |-- _claims/
     |-- _ops/applied/
@@ -105,162 +103,139 @@
     |-- ops.py
     |-- compact.sh
     `-- query.sh</code></pre>
-
-                    <div class="hero-card-note">
-                        <strong>Convention is the schema. The filesystem is the index.</strong>
-                        <p>
-                            v3 keeps the files human-readable while giving agents typed records,
-                            stable identities, generated read models, and reviewable writes.
-                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="problem-strip">
-            <div class="container strip-grid">
-                <article class="strip-card">
-                    <span class="strip-label">The problem</span>
-                    <h2>Agents forget, and shared context gets messy.</h2>
+                <ul class="signal-list" aria-label="Protocol properties">
+                    <li>Plain Markdown</li>
+                    <li>Typed facts</li>
+                    <li>Append-only events</li>
+                    <li>Generated views</li>
+                    <li>Conflict-aware writes</li>
+                </ul>
+            </section>
+
+            <section class="feed-section two-up" aria-labelledby="problem-title">
+                <article class="story-card">
+                    <span class="meta-label">Problem</span>
+                    <h2 id="problem-title">Agents forget, and shared context gets messy.</h2>
                     <p>
                         Long-running projects need durable facts, provenance, decisions, and session history.
                         Free-form notes alone are readable, but not easy to validate or coordinate across tools.
                     </p>
                 </article>
-                <article class="strip-card strip-card-accent">
-                    <span class="strip-label">The fix</span>
+
+                <article class="story-card story-card-accent">
+                    <span class="meta-label">Fix</span>
                     <h2>Split human notes from agent records.</h2>
                     <p>
                         Keep narrative pages for humans. Give agents atomic facts, append-only events,
                         schema-checked frontmatter, generated views, and an inbox for proposed writes.
                     </p>
                 </article>
-            </div>
-        </section>
+            </section>
 
-        <section id="how-it-works" class="section">
-            <div class="container">
+            <section id="how-it-works" class="feed-section" aria-labelledby="how-title">
                 <div class="section-heading">
-                    <p class="eyebrow">How it works</p>
-                    <h2>A memory protocol made of folders, YAML, and small scripts.</h2>
+                    <p class="eyebrow">Protocol</p>
+                    <h2 id="how-title">A memory protocol made of folders, YAML, and small scripts.</h2>
                     <p>
                         v3.0 is the stable Atomic Markdown Memory core. v3.1 adds a cooperative
                         write flow for agentic environments without introducing a database or service.
                     </p>
                 </div>
 
-                <div class="architecture-grid">
-                    <article class="step-card">
-                        <span class="step-number">01</span>
-                        <h3>Human narrative stays human</h3>
-                        <p>
-                            `memory/people/`, `memory/projects/`, and `memory/context/` remain prose-first
-                            Obsidian notes optimized for reading, linking, and thinking.
-                        </p>
+                <div class="feed-list">
+                    <article class="feed-row">
+                        <span class="feed-index">01</span>
+                        <div>
+                            <h3>Human narrative stays human</h3>
+                            <p>`memory/people/`, `memory/projects/`, and `memory/context/` remain prose-first Obsidian notes optimized for reading, linking, and thinking.</p>
+                        </div>
                     </article>
-                    <article class="step-card">
-                        <span class="step-number">02</span>
-                        <h3>Facts become atomic</h3>
-                        <p>
-                            Durable agent-facing facts live one tuple per file under
-                            `memory/facts/{entity}/{predicate}.md`, with typed frontmatter and provenance.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">02</span>
+                        <div>
+                            <h3>Facts become atomic</h3>
+                            <p>Durable agent-facing facts live one tuple per file under `memory/facts/{entity}/{predicate}.md`, with typed frontmatter and provenance.</p>
+                        </div>
                     </article>
-                    <article class="step-card">
-                        <span class="step-number">03</span>
-                        <h3>Events are append-only</h3>
-                        <p>
-                            Session-level history goes to `memory/events/YYYY-MM-DD/`, preserving time,
-                            source, and derived facts without rewriting old memory.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">03</span>
+                        <div>
+                            <h3>Events are append-only</h3>
+                            <p>Session-level history goes to `memory/events/YYYY-MM-DD/`, preserving time, source, and derived facts without rewriting old memory.</p>
+                        </div>
                     </article>
-                    <article class="step-card">
-                        <span class="step-number">04</span>
-                        <h3>Views are generated</h3>
-                        <p>
-                            `_views/` gives agents fast read models by entity, predicate, timeline, stale
-                            facts, operations, claims, and conflicts. Regenerate them, never edit them.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">04</span>
+                        <div>
+                            <h3>Views are generated</h3>
+                            <p>`_views/` gives agents fast read models by entity, predicate, timeline, stale facts, operations, claims, and conflicts. Regenerate them, never edit them.</p>
+                        </div>
                     </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="v31" class="section section-dark">
-            <div class="container">
+            <section id="v31" class="feed-section" aria-labelledby="v31-title">
                 <div class="section-heading">
                     <p class="eyebrow">v3.1 agentic hardening</p>
-                    <h2>Agents propose changes. The compactor applies them.</h2>
+                    <h2 id="v31-title">Agents propose changes. The compactor applies them.</h2>
                     <p>
-                        v3.1 makes cooperation explicit: proposed writes are Markdown operation envelopes,
-                        not direct mutations of canonical memory. A human or trusted compactor validates,
-                        applies, rebuilds views, and records receipts.
+                        Proposed writes are Markdown operation envelopes, not direct mutations of canonical
+                        memory. A human or trusted compactor validates, applies, rebuilds views, and records receipts.
                     </p>
                 </div>
 
-                <div class="feature-grid">
-                    <article class="feature-card">
+                <div class="story-grid">
+                    <article class="story-card">
+                        <span class="meta-label">01 / ops</span>
                         <h3>Operation envelopes</h3>
-                        <p>
-                            Agents write proposed operations to `memory/_inbox/{agent-id}/ops/`, with
-                            reason, target, source, payload, and status.
-                        </p>
+                        <p>Agents write proposed operations to `memory/_inbox/{agent-id}/ops/`, with reason, target, source, payload, and status.</p>
                     </article>
-                    <article class="feature-card">
+                    <article class="story-card">
+                        <span class="meta-label">02 / ids</span>
                         <h3>Stable record IDs</h3>
-                        <p>
-                            Facts and events can carry durable `id:` values, so paths stay readable
-                            without being the only identity.
-                        </p>
+                        <p>Facts and events can carry durable `id:` values, so paths stay readable without being the only identity.</p>
                     </article>
-                    <article class="feature-card">
+                    <article class="story-card">
+                        <span class="meta-label">03 / hashes</span>
                         <h3>Precondition hashes</h3>
-                        <p>
-                            Update and archive operations can include a content hash for optimistic
-                            conflict detection before a write is applied.
-                        </p>
+                        <p>Update and archive operations can include a content hash for optimistic conflict detection before a write is applied.</p>
                     </article>
-                    <article class="feature-card">
+                    <article class="story-card">
+                        <span class="meta-label">04 / claims</span>
                         <h3>Advisory claims</h3>
-                        <p>
-                            Cooperative agents can create TTL-based `_claims/` files for a target.
-                            They are diagnostic coordination files, not distributed locks.
-                        </p>
+                        <p>Cooperative agents can create TTL-based `_claims/` files for a target. They are diagnostic coordination files, not distributed locks.</p>
                     </article>
-                    <article class="feature-card">
+                    <article class="story-card">
+                        <span class="meta-label">05 / receipts</span>
                         <h3>Applied receipts</h3>
-                        <p>
-                            Applied operations are preserved under `_ops/applied/`, so the vault keeps an
-                            audit trail of who proposed what and what actually changed.
-                        </p>
+                        <p>Applied operations are preserved under `_ops/applied/`, so the vault keeps an audit trail of who proposed what and what actually changed.</p>
                     </article>
-                    <article class="feature-card">
+                    <article class="story-card">
+                        <span class="meta-label">06 / views</span>
                         <h3>Operational views</h3>
-                        <p>
-                            Generated views surface inbox state, operations, conflicts, claims, IDs, and
-                            predicates so agents can inspect the system before acting.
-                        </p>
+                        <p>Generated views surface inbox state, operations, conflicts, claims, IDs, and predicates so agents can inspect the system before acting.</p>
                     </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="example" class="section section-dark">
-            <div class="container">
+            <section id="example" class="feed-section" aria-labelledby="example-title">
                 <div class="section-heading">
                     <p class="eyebrow">Reference vault</p>
-                    <h2>A complete v3 example, not just a template.</h2>
+                    <h2 id="example-title">A complete v3 example, not just a template.</h2>
                     <p>
                         The repository includes a fictional Elena Voss vault with typed facts, events,
                         generated views, operation helpers, linting, compaction, and query scripts.
                     </p>
                 </div>
 
-                <div class="example-grid">
-                    <div class="example-tree">
-                        <div class="example-tree-header">
-                            <span class="pill">Elena Voss</span>
-                            <span class="pill pill-muted">v3 reference</span>
+                <div class="dossier-grid">
+                    <article class="vault-dossier">
+                        <div class="panel-heading">
+                            <span class="meta-label">Elena Voss</span>
+                            <span class="panel-badge">v3 reference</span>
                         </div>
                         <pre class="vault-preview"><code>examples/v3-minimal-vault/
 |-- CLAUDE.md
@@ -281,14 +256,14 @@
     |-- _inbox/
     |-- _claims/
     `-- _ops/applied/</code></pre>
-                    </div>
+                    </article>
 
                     <div class="example-preview">
                         <div class="example-tabs" role="tablist" aria-label="v3 reference vault examples">
-                            <button id="tab-button-protocol" class="example-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-protocol" data-target="tab-protocol">Protocol</button>
-                            <button id="tab-button-fact" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-fact" data-target="tab-fact">Atomic fact</button>
-                            <button id="tab-button-operation" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-operation" data-target="tab-operation">Operation</button>
-                            <button id="tab-button-view" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-view" data-target="tab-view">Generated view</button>
+                            <button id="tab-button-protocol" class="example-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-protocol" tabindex="0" data-target="tab-protocol">Protocol</button>
+                            <button id="tab-button-fact" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-fact" tabindex="-1" data-target="tab-fact">Atomic fact</button>
+                            <button id="tab-button-operation" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-operation" tabindex="-1" data-target="tab-operation">Operation</button>
+                            <button id="tab-button-view" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-view" tabindex="-1" data-target="tab-view">Generated view</button>
                         </div>
 
                         <div class="example-pane is-active" id="tab-protocol" role="tabpanel" aria-labelledby="tab-button-protocol">
@@ -372,108 +347,102 @@ Generated by tools/rebuild-views.sh. Do not edit.
                     </div>
                 </div>
 
-                <div class="example-cta">
+                <div class="section-actions">
                     <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Browse the v3 reference vault</a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="features" class="section">
-            <div class="container">
+            <section id="features" class="feed-section" aria-labelledby="features-title">
                 <div class="section-heading">
-                    <p class="eyebrow">Design choices</p>
-                    <h2>The tradeoffs are intentional.</h2>
+                    <p class="eyebrow">Tradeoffs</p>
+                    <h2 id="features-title">The constraints are intentional.</h2>
                 </div>
 
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <h3>Plain text over infrastructure</h3>
-                        <p>
-                            Your memory is a folder you can read, edit, version, tar, sync, and move.
-                            There is no hosted retrieval API deciding what the agent remembers.
-                        </p>
+                <div class="feed-list compact">
+                    <article class="feed-row">
+                        <span class="feed-index">A</span>
+                        <div>
+                            <h3>Plain text over infrastructure</h3>
+                            <p>Your memory is a folder you can read, edit, version, tar, sync, and move. There is no hosted retrieval API deciding what the agent remembers.</p>
+                        </div>
                     </article>
-                    <article class="feature-card">
-                        <h3>Schema without a database</h3>
-                        <p>
-                            Frontmatter declares types. YAML schemas and `tools/lint.py` enforce required
-                            fields, path semantics, dates, predicates, wikilinks, and contradictions.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">B</span>
+                        <div>
+                            <h3>Schema without a database</h3>
+                            <p>Frontmatter declares types. YAML schemas and `tools/lint.py` enforce required fields, path semantics, dates, predicates, wikilinks, and contradictions.</p>
+                        </div>
                     </article>
-                    <article class="feature-card">
-                        <h3>Bi-temporal by default</h3>
-                        <p>
-                            Facts distinguish when something is true in the world from when it was recorded,
-                            preserving temporal context without a graph engine.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">C</span>
+                        <div>
+                            <h3>Bi-temporal by default</h3>
+                            <p>Facts distinguish when something is true in the world from when it was recorded, preserving temporal context without a graph engine.</p>
+                        </div>
                     </article>
-                    <article class="feature-card">
-                        <h3>Query with boring tools</h3>
-                        <p>
-                            Paths, frontmatter, `rg`, `yq`, and `tools/query.sh` cover the personal-context
-                            scale this system is designed for.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">D</span>
+                        <div>
+                            <h3>Query with boring tools</h3>
+                            <p>Paths, frontmatter, `rg`, `yq`, and `tools/query.sh` cover the personal-context scale this system is designed for.</p>
+                        </div>
                     </article>
-                    <article class="feature-card">
-                        <h3>Git as audit log</h3>
-                        <p>
-                            Every memory change is visible in diffs and history. Generated views make derived
-                            state reviewable instead of hidden in a service.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">E</span>
+                        <div>
+                            <h3>Git as audit log</h3>
+                            <p>Every memory change is visible in diffs and history. Generated views make derived state reviewable instead of hidden in a service.</p>
+                        </div>
                     </article>
-                    <article class="feature-card">
-                        <h3>Additive migration</h3>
-                        <p>
-                            Existing vaults can adopt v3 gradually: add schemas and tools, write new facts
-                            atomically, and backfill durable records as they become useful.
-                        </p>
+                    <article class="feed-row">
+                        <span class="feed-index">F</span>
+                        <div>
+                            <h3>Additive migration</h3>
+                            <p>Existing vaults can adopt v3 gradually: add schemas and tools, write new facts atomically, and backfill durable records as they become useful.</p>
+                        </div>
                     </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="compatibility" class="section section-dark">
-            <div class="container">
+            <section id="compatibility" class="feed-section" aria-labelledby="compat-title">
                 <div class="section-heading">
-                    <p class="eyebrow">Compatibility</p>
-                    <h2>Same memory, different agents.</h2>
+                    <p class="eyebrow">Agents</p>
+                    <h2 id="compat-title">Same memory, different agents.</h2>
                 </div>
 
-                <div class="compatibility-grid">
-                    <article class="compat-card">
+                <div class="compat-list">
+                    <article class="story-card">
                         <h3>Claude Code</h3>
                         <p>Reads <code>CLAUDE.md</code> natively and can follow the v3 protocol in the vault.</p>
                     </article>
-                    <article class="compat-card">
+                    <article class="story-card">
                         <h3>GitHub Copilot</h3>
                         <p>Use <code>COPILOT.md</code>, repo instructions, and operation envelopes for proposed writes.</p>
                     </article>
-                    <article class="compat-card">
+                    <article class="story-card">
                         <h3>Anthropic Memory Tool</h3>
                         <p>Map <code>memory/</code> to <code>/memories</code>: facts, events, decisions, insights, views, and inbox.</p>
                     </article>
-                    <article class="compat-card">
+                    <article class="story-card">
                         <h3>Obsidian Agent Skills</h3>
                         <p>Pair the protocol with Obsidian-aware skills for frontmatter, wikilinks, and vault conventions.</p>
                     </article>
-                    <article class="compat-card">
+                    <article class="story-card">
                         <h3>Cursor and others</h3>
                         <p>Adapt the loading mechanism. The data stays as Markdown files in your vault.</p>
                     </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="honest" class="section section-honest">
-            <div class="container honest-grid">
-                <div>
+            <section id="honest" class="feed-section" aria-labelledby="scope-title">
+                <div class="section-heading">
                     <p class="eyebrow">Scope</p>
-                    <h2>What you get and what you don't.</h2>
+                    <h2 id="scope-title">What you get and what you don't.</h2>
                 </div>
 
-                <div class="honest-columns">
-                    <article class="honest-card honest-card-yes">
-                        <h3>Included</h3>
+                <div class="split-panel">
+                    <article class="story-card">
+                        <span class="meta-label">Included</span>
                         <ul>
                             <li>Atomic semantic facts with stable IDs and source provenance</li>
                             <li>Append-only episodic events for session history</li>
@@ -483,8 +452,8 @@ Generated by tools/rebuild-views.sh. Do not edit.
                         </ul>
                     </article>
 
-                    <article class="honest-card honest-card-no">
-                        <h3>Not included</h3>
+                    <article class="story-card">
+                        <span class="meta-label">Not included</span>
                         <ul>
                             <li>A database, vector store, graph engine, daemon, or hosted memory API</li>
                             <li>Transactional guarantees for distributed multi-agent workloads</li>
@@ -494,34 +463,29 @@ Generated by tools/rebuild-views.sh. Do not edit.
                         </ul>
                     </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="migration" class="section">
-            <div class="container cta-panel">
-                <div>
-                    <p class="eyebrow">Get started</p>
-                    <h2>Clone the reference vault, run the linter, inspect the views.</h2>
+            <section id="migration" class="feed-section cta-section" aria-labelledby="migration-title">
+                <div class="section-heading">
+                    <p class="eyebrow">Start</p>
+                    <h2 id="migration-title">Clone the reference vault, run the linter, inspect the views.</h2>
                     <p>
                         The stable v3.0 core is ready to use. The v3.1 hardening additions are already in
                         the reference implementation for cooperative agent workflows.
                     </p>
                 </div>
-                <div class="cta-actions">
-                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">Read SPEC v3</a>
+                <div class="section-actions">
+                    <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">Read SPEC v3</a>
                     <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
                     <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/migration-v3.md" target="_blank" rel="noreferrer">Migration checklist</a>
-                    <a class="button button-tertiary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
-                    <a class="button button-primary" href="https://buymeacoffee.com/jrcruciani" target="_blank" rel="noreferrer">🍕 Buy me a pizza</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="faq" class="section faq-section">
-            <div class="container">
+            <section id="faq" class="feed-section faq-section" aria-labelledby="faq-title">
                 <div class="section-heading">
                     <p class="eyebrow">FAQ</p>
-                    <h2>Questions</h2>
+                    <h2 id="faq-title">Questions</h2>
                 </div>
 
                 <div class="faq-list">
@@ -547,32 +511,28 @@ Generated by tools/rebuild-views.sh. Do not edit.
                     </details>
                     <details class="faq-item">
                         <summary>Why not use a vector database or a dedicated memory product?</summary>
-                        <p>
-                            Different layer. Vector and graph systems are strong for large retrieval problems.
-                            This system handles curated personal and project context where transparency,
-                            ownership, auditability, and portability matter more than managed infrastructure.
-                        </p>
+                        <p>Different layer. Vector and graph systems are strong for large retrieval problems. This system handles curated personal and project context where transparency, ownership, auditability, and portability matter more than managed infrastructure.</p>
                     </details>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <strong>Obsidian Memory for AI</strong>
-                <p>Atomic Markdown Memory for AI agents. Plain files, typed records, open source.</p>
-            </div>
-            <div class="footer-links">
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">SPEC v3</a>
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/automation-guide.md" target="_blank" rel="noreferrer">Automation</a>
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
-            </div>
-        </div>
-    </footer>
+            <footer class="site-footer">
+                <div>
+                    <strong>Agent Memory</strong>
+                    <p>Atomic Markdown Memory for AI agents. Plain files, typed records, open source.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#top">Top</a>
+                    <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">SPEC v3</a>
+                    <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
+                    <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/automation-guide.md" target="_blank" rel="noreferrer">Automation</a>
+                    <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
+                    <a href="https://buymeacoffee.com/jrcruciani" target="_blank" rel="noreferrer">Buy a pizza</a>
+                </div>
+            </footer>
+        </main>
+    </div>
 
     <script src="js/app.js"></script>
 </body>

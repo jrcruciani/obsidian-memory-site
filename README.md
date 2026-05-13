@@ -2,6 +2,8 @@
 
 Static marketing site for the Obsidian Memory for AI project, currently framed around the stable v3.0 Atomic Markdown Memory core and the v3.1 agentic hardening additions from `Jrcruciani/obsidian-memory-for-ai`.
 
+The landing is a light-first editorial dossier: sidebar navigation, compact feed sections, monospaced UI labels, and automatic dark mode.
+
 ## Structure
 
 - `index.html`
