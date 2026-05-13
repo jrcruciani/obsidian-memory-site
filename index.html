@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian Memory for AI | Structured context for AI assistants in plain Markdown</title>
-    <meta name="description" content="A file-based system to give AI assistants persistent context using your Obsidian vault. Open source, plain Markdown, no dependencies.">
+    <title>Obsidian Memory for AI | Atomic Markdown Memory for AI agents</title>
+    <meta name="description" content="A portable Obsidian-compatible memory protocol for AI agents: typed Markdown facts, append-only events, generated views, linting, and v3.1 cooperative write envelopes.">
     <meta name="theme-color" content="#0f1221">
     <meta property="og:title" content="Obsidian Memory for AI">
-    <meta property="og:description" content="Structured, persistent context for AI assistants. Plain Markdown, no lock-in.">
+    <meta property="og:description" content="Atomic Markdown Memory for AI agents. Plain files, typed facts, generated views, and v3.1 agentic hardening.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Obsidian Memory for AI">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Obsidian Memory for AI">
-    <meta name="twitter:description" content="Structured context for AI assistants using your Obsidian vault.">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="twitter:description" content="Atomic Markdown Memory for AI agents. Plain Markdown, no database, no lock-in.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css?v=3.1">
 </head>
 <body>
     <div class="page-glow page-glow-a"></div>
@@ -25,7 +26,7 @@
                 <span class="brand-mark">OM</span>
                 <span class="brand-text">
                     <strong>Obsidian Memory for AI</strong>
-                    <span>Persistent context in plain Markdown</span>
+                    <span>Atomic Markdown Memory</span>
                 </span>
             </a>
 
@@ -38,9 +39,9 @@
 
             <nav id="site-nav" class="site-nav" aria-label="Primary">
                 <a href="#how-it-works">How it works</a>
+                <a href="#v31">v3.1</a>
                 <a href="#example">Example</a>
-                <a href="#features">Why it works</a>
-                <a href="#honest">What it is not</a>
+                <a href="#compatibility">Compatibility</a>
                 <a href="#faq">FAQ</a>
                 <a class="nav-cta" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">View on GitHub</a>
             </nav>
@@ -51,24 +52,26 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Context for AI assistants · v2.0</p>
-                    <h1>Your AI doesn't know who you are. This fixes that.</h1>
+                    <p class="eyebrow">Stable v3.0 core + v3.1 agentic hardening</p>
+                    <h1>Memory that agents can read, propose, and audit.</h1>
                     <p class="hero-lead">
-                        A persistent, compounding wiki — maintained by your AI, directed by you — in
-                        plain Markdown inside your Obsidian vault. Three layers, four operations, zero infrastructure.
+                        Obsidian Memory for AI is a Markdown-first memory protocol: atomic facts,
+                        append-only events, generated views, portable linting, and cooperative write
+                        envelopes for agents. No database. No daemon. No vector store.
                     </p>
 
                     <div class="hero-actions">
                         <a class="button button-primary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub repo</a>
-                        <a class="button button-secondary" href="#example">See it in action</a>
-                        <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/guide.md" target="_blank" rel="noreferrer">Read the guide</a>
+                        <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">Read SPEC v3</a>
+                        <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Open example vault</a>
                     </div>
 
                     <div class="hero-meta">
                         <ul class="proof-points">
-                            <li>Open source</li>
                             <li>Plain Markdown</li>
-                            <li>No dependencies</li>
+                            <li>Typed facts</li>
+                            <li>Generated views</li>
+                            <li>Conflict-aware</li>
                             <li>Works with any AI</li>
                         </ul>
                     </div>
@@ -76,34 +79,38 @@
 
                 <div class="hero-card">
                     <div class="hero-card-top">
-                        <span class="pill">Structure</span>
+                        <span class="pill">v3 vault shape</span>
                         <span class="pill pill-muted">Just files</span>
                     </div>
 
                     <pre class="vault-preview"><code>vault/
 |-- CLAUDE.md
 |-- COPILOT.md
-|-- TASKS.md
+|-- AGENTS.md
 |-- sources/
-|   |-- articles/
-|   `-- notes/
 `-- memory/
-    |-- schema.md
-    |-- index.md
-    |-- log.md
-    |-- glossary.md
-    |-- working-context.md
-    |-- insights/
-    |-- context/
-    |-- people/
-    |-- projects/
-    `-- decisions/</code></pre>
+    |-- schema/
+    |-- facts/
+    |   `-- elena-voss/role.md
+    |-- events/2026-05-11/
+    |-- _views/
+    |   |-- by-entity/elena-voss.md
+    |   `-- conflicts.md
+    |-- _inbox/agent-id/ops/
+    |-- _claims/
+    |-- _ops/applied/
+    `-- _archive/
+`-- tools/
+    |-- lint.py
+    |-- ops.py
+    |-- compact.sh
+    `-- query.sh</code></pre>
 
                     <div class="hero-card-note">
-                        <strong>Files you own, in a format that will outlast any tool.</strong>
+                        <strong>Convention is the schema. The filesystem is the index.</strong>
                         <p>
-                            No database, no embeddings, no API. Markdown files in folders,
-                            readable by humans and machines alike.
+                            v3 keeps the files human-readable while giving agents typed records,
+                            stable identities, generated read models, and reviewable writes.
                         </p>
                     </div>
                 </div>
@@ -114,18 +121,18 @@
             <div class="container strip-grid">
                 <article class="strip-card">
                     <span class="strip-label">The problem</span>
-                    <h2>You explain the same things every session.</h2>
+                    <h2>Agents forget, and shared context gets messy.</h2>
                     <p>
-                        Who you are, what you're working on, why you made that decision three weeks ago,
-                        what "Val" means, which project is which. Every time.
+                        Long-running projects need durable facts, provenance, decisions, and session history.
+                        Free-form notes alone are readable, but not easy to validate or coordinate across tools.
                     </p>
                 </article>
                 <article class="strip-card strip-card-accent">
                     <span class="strip-label">The fix</span>
-                    <h2>Put it in files. Load what's relevant.</h2>
+                    <h2>Split human notes from agent records.</h2>
                     <p>
-                        Glossary, projects, people, tasks, decisions — structured in your vault,
-                        loaded on demand. The AI reads; you stop repeating yourself.
+                        Keep narrative pages for humans. Give agents atomic facts, append-only events,
+                        schema-checked frontmatter, generated views, and an inbox for proposed writes.
                     </p>
                 </article>
             </div>
@@ -135,49 +142,103 @@
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">How it works</p>
-                    <h2>Folders, files, and a loading order.</h2>
+                    <h2>A memory protocol made of folders, YAML, and small scripts.</h2>
                     <p>
-                        There's no clever trick. You organize context into files with a consistent structure,
-                        and the AI follows rules about what to read first.
+                        v3.0 is the stable Atomic Markdown Memory core. v3.1 adds a cooperative
+                        write flow for agentic environments without introducing a database or service.
                     </p>
                 </div>
 
-                <div class="steps-grid">
+                <div class="architecture-grid">
                     <article class="step-card">
                         <span class="step-number">01</span>
-                        <h3>Three layers</h3>
+                        <h3>Human narrative stays human</h3>
                         <p>
-                            <strong>Sources</strong> (raw inputs the AI reads but never modifies),
-                            <strong>Wiki</strong> (knowledge pages the AI maintains), and
-                            <strong>Schema</strong> (your identity and loading rules). Simple, separated, version-controlled.
+                            `memory/people/`, `memory/projects/`, and `memory/context/` remain prose-first
+                            Obsidian notes optimized for reading, linking, and thinking.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">02</span>
-                        <h3>Four operations</h3>
+                        <h3>Facts become atomic</h3>
                         <p>
-                            <strong>Ingest</strong> sources into wiki pages.
-                            <strong>Query</strong> the wiki and file insights back.
-                            <strong>Lint</strong> for contradictions and gaps.
-                            <strong>Log</strong> everything in a grep-able record.
+                            Durable agent-facing facts live one tuple per file under
+                            `memory/facts/{entity}/{predicate}.md`, with typed frontmatter and provenance.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">03</span>
-                        <h3>Tiered loading + triggers</h3>
+                        <h3>Events are append-only</h3>
                         <p>
-                            An OS-inspired memory hierarchy loads identity first, then working state, then
-                            reference files on demand. Keyword triggers detect context and load the right files
-                            automatically.
+                            Session-level history goes to `memory/events/YYYY-MM-DD/`, preserving time,
+                            source, and derived facts without rewriting old memory.
                         </p>
                     </article>
                     <article class="step-card">
                         <span class="step-number">04</span>
-                        <h3>Knowledge compounds</h3>
+                        <h3>Views are generated</h3>
                         <p>
-                            Every session, every source, every good answer makes the wiki richer.
-                            The AI handles the bookkeeping — cross-referencing, consistency, maintenance.
-                            You direct the inquiry.
+                            `_views/` gives agents fast read models by entity, predicate, timeline, stale
+                            facts, operations, claims, and conflicts. Regenerate them, never edit them.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="v31" class="section section-dark">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">v3.1 agentic hardening</p>
+                    <h2>Agents propose changes. The compactor applies them.</h2>
+                    <p>
+                        v3.1 makes cooperation explicit: proposed writes are Markdown operation envelopes,
+                        not direct mutations of canonical memory. A human or trusted compactor validates,
+                        applies, rebuilds views, and records receipts.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3>Operation envelopes</h3>
+                        <p>
+                            Agents write proposed operations to `memory/_inbox/{agent-id}/ops/`, with
+                            reason, target, source, payload, and status.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Stable record IDs</h3>
+                        <p>
+                            Facts and events can carry durable `id:` values, so paths stay readable
+                            without being the only identity.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Precondition hashes</h3>
+                        <p>
+                            Update and archive operations can include a content hash for optimistic
+                            conflict detection before a write is applied.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Advisory claims</h3>
+                        <p>
+                            Cooperative agents can create TTL-based `_claims/` files for a target.
+                            They are diagnostic coordination files, not distributed locks.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Applied receipts</h3>
+                        <p>
+                            Applied operations are preserved under `_ops/applied/`, so the vault keeps an
+                            audit trail of who proposed what and what actually changed.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Operational views</h3>
+                        <p>
+                            Generated views surface inbox state, operations, conflicts, claims, IDs, and
+                            predicates so agents can inspect the system before acting.
                         </p>
                     </article>
                 </div>
@@ -187,11 +248,11 @@
         <section id="example" class="section section-dark">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">See it in action</p>
-                    <h2>A complete vault, not a template.</h2>
+                    <p class="eyebrow">Reference vault</p>
+                    <h2>A complete v3 example, not just a template.</h2>
                     <p>
-                        The repo includes a working example — a fictional art conservator who maps
-                        medieval pigment recipes to spectroscopy data. Different domain, same system.
+                        The repository includes a fictional Elena Voss vault with typed facts, events,
+                        generated views, operation helpers, linting, compaction, and query scripts.
                     </p>
                 </div>
 
@@ -199,126 +260,125 @@
                     <div class="example-tree">
                         <div class="example-tree-header">
                             <span class="pill">Elena Voss</span>
-                            <span class="pill pill-muted">Fictional example</span>
+                            <span class="pill pill-muted">v3 reference</span>
                         </div>
-                        <pre class="vault-preview"><code>minimal-vault/
+                        <pre class="vault-preview"><code>examples/v3-minimal-vault/
 |-- CLAUDE.md
-|-- TASKS.md
+|-- README.md
 |-- sources/
-|   `-- articles/
-|       `-- venetian-pigment-study.md
+|-- tools/
+|   |-- lint.py
+|   |-- ops.py
+|   |-- compact.sh
+|   |-- rebuild-views.sh
+|   `-- query.sh
 `-- memory/
-    |-- schema.md
-    |-- index.md
-    |-- log.md
-    |-- glossary.md
-    |-- working-context.md
-    |-- context/
-    |   |-- professional.md
-    |   `-- personality.md
-    |-- people/
-    |-- projects/
-    |-- insights/
-    |   `-- uv-threshold-revision.md
-    `-- decisions/
-        `-- DEC-001 - Concordance data format.md</code></pre>
+    |-- entities.md
+    |-- schema/
+    |-- facts/elena-voss/
+    |-- events/2026-05-11/
+    |-- _views/
+    |-- _inbox/
+    |-- _claims/
+    `-- _ops/applied/</code></pre>
                     </div>
 
                     <div class="example-preview">
-                        <div class="example-tabs">
-                            <button class="example-tab is-active" data-target="tab-claude">CLAUDE.md</button>
-                            <button class="example-tab" data-target="tab-glossary">glossary.md</button>
-                            <button class="example-tab" data-target="tab-decision">DEC-001</button>
+                        <div class="example-tabs" role="tablist" aria-label="v3 reference vault examples">
+                            <button id="tab-button-protocol" class="example-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-protocol" data-target="tab-protocol">Protocol</button>
+                            <button id="tab-button-fact" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-fact" data-target="tab-fact">Atomic fact</button>
+                            <button id="tab-button-operation" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-operation" data-target="tab-operation">Operation</button>
+                            <button id="tab-button-view" class="example-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-view" data-target="tab-view">Generated view</button>
                         </div>
 
-                        <div class="example-pane is-active" id="tab-claude">
+                        <div class="example-pane is-active" id="tab-protocol" role="tabpanel" aria-labelledby="tab-button-protocol">
                             <pre class="vault-preview"><code># Context for AI sessions
 
-## Who I am
-- **Name:** Elena Voss
-- **Role:** Art conservator and pigment researcher
-- **Base:** Berlin, Germany (studio in Kreuzberg)
-- **Day job:** Senior conservator at the Gemäldegalerie
-- **Side project:** Reverse-engineering historical pigment
-  recipes using spectroscopy data and period source texts
-
-## How to interact with me
-- **Tone:** Direct, technical when needed, no hand-holding
-- **I value:** Precision in terminology, proper citation
-- **When I say "the manuscript"** I mean Strasbourg MS
-  (15th c.) unless I specify otherwise
-
-## Vault structure
-- Research/ — Pigment analysis, treatise translations
-- Concordance/ — The mapping project: recipes → spectra
-- Gallery/ — Work notes, condition reports
-- memory/ — AI memory system (this folder)</code></pre>
+## v3 memory protocol
+- Human-readable narrative lives in memory/people/,
+  memory/projects/, and memory/context/.
+- Agent-readable facts live in memory/facts/ and
+  must pass tools/lint.py.
+- New session records live in memory/events/YYYY-MM-DD/.
+- Proposed agent writes should be operation envelopes in
+  memory/_inbox/{agent-id}/ops/.
+- Cooperative claims live in memory/_claims/; treat them
+  as advisory, not transactional locks.
+- Read generated context from memory/_views/ when available,
+  but never edit _views directly.</code></pre>
                         </div>
 
-                        <div class="example-pane" id="tab-glossary">
-                            <pre class="vault-preview"><code>## Acronyms
-| Term | Meaning                              |
-|------|--------------------------------------|
-| XRF  | X-ray fluorescence                   |
-| FORS | Fiber optic reflectance spectroscopy |
-| GG   | Gemäldegalerie                       |
-| LTY  | Lead-tin yellow                      |
-
-## Internal terms
-| Term          | Meaning                              |
-|---------------|--------------------------------------|
-| Concordance   | Pigment recipe → spectroscopy project|
-| the manuscript| Strasbourg MS (15th c.)              |
-| Gallery 5     | Current Cranach survey assignment     |
-| Ghent samples | XRF dataset from KIK-IRPA collab     |
-
-## Nicknames
-| Nickname   | Person                               |
-|------------|--------------------------------------|
-| Tobias     | Tobias Ackermann, lab colleague      |
-| Dr. Krause | Dr. Ingrid Krause, department head   |
-| Marta      | Marta Delvaux, KIK-IRPA Brussels    |</code></pre>
+                        <div class="example-pane" id="tab-fact" role="tabpanel" aria-labelledby="tab-button-fact">
+                            <pre class="vault-preview"><code>---
+type: fact
+id: fact-elena-voss-role
+entity: elena-voss
+predicate: role
+value: "Art conservator and pigment researcher"
+valid_from: 2025-09-01
+valid_to: null
+recorded_at: 2026-05-10T22:14:00Z
+confidence: high
+sources:
+  - sources/profile.md
+last_reviewed: 2026-05-11
+decay:
+  review_after_days: 180
+  archive_after_valid_to: true
+  pin: false
+---</code></pre>
                         </div>
 
-                        <div class="example-pane" id="tab-decision">
-                            <pre class="vault-preview"><code># DEC-001 - Concordance data format
+                        <div class="example-pane" id="tab-operation" role="tabpanel" aria-labelledby="tab-button-operation">
+                            <pre class="vault-preview"><code>---
+type: operation
+operation_id: op-20260512t180000z-1a2b3c4d
+op: create_fact
+agent_id: agent-copilot-1a2b3c4d
+created_at: 2026-05-12T18:00:00Z
+target_id: fact-elena-voss-language
+target_path: memory/facts/elena-voss/language.md
+precondition_hash: null
+status: proposed
+reason: "Capture a durable language preference."
+sources:
+  - sources/session-2026-05-12.md
+payload:
+  type: fact
+  id: fact-elena-voss-language
+  entity: elena-voss
+  predicate: language
+  value: Spanish
+---</code></pre>
+                        </div>
 
-**Status:** Accepted
-**Date:** 2026-03-16
-**Scope:** Concordance project
+                        <div class="example-pane" id="tab-view" role="tabpanel" aria-labelledby="tab-button-view">
+                            <pre class="vault-preview"><code># memory/_views/by-entity/elena-voss.md
 
-## Context
-The Concordance project needs a data format for
-storing recipe-to-spectrum mappings. Marta suggested
-SQLite. Tobias mentioned Airtable.
+Generated by tools/rebuild-views.sh. Do not edit.
 
-## Decision
-Use Markdown files (one per entry) with structured
-headings + companion CSV files for spectral data.
+## Active facts
+- role: Art conservator and pigment researcher
+  source: memory/facts/elena-voss/role.md
+- base: Berlin, Germany
+  source: memory/facts/elena-voss/base.md
+- primary-project: Concordance
+  source: memory/facts/elena-voss/primary-project.md
 
-## Alternatives considered
-- **SQLite** — Better for queries, but adds tooling
-  dependency. Breaks "everything in Obsidian" principle.
-- **Airtable** — Good UI, but proprietary and cloud-
-  dependent. No wikilinks, no version control.
-- **JSON** — Machine-readable but painful to edit by
-  hand. Markdown is both human- and machine-readable.
-
-## Consequences
-- Entries are part of the Obsidian knowledge graph
-- Querying requires grep or Python, not SQL
-- Revisit if dataset grows past 500 entries</code></pre>
+## Operations
+- pending: 1 proposed operation in _inbox/
+- conflicts: none</code></pre>
                         </div>
                     </div>
                 </div>
 
                 <div class="example-cta">
-                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/minimal-vault" target="_blank" rel="noreferrer">Browse the full example on GitHub</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Browse the v3 reference vault</a>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="section section-dark">
+        <section id="features" class="section">
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">Design choices</p>
@@ -329,82 +389,76 @@ headings + companion CSV files for spectral data.
                     <article class="feature-card">
                         <h3>Plain text over infrastructure</h3>
                         <p>
-                            No database, no vector store, no embeddings. Your context is in files you can
-                            read, edit, version, and move with standard tools.
+                            Your memory is a folder you can read, edit, version, tar, sync, and move.
+                            There is no hosted retrieval API deciding what the agent remembers.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Any AI that reads files</h3>
+                        <h3>Schema without a database</h3>
                         <p>
-                            Claude Code, Copilot, Cursor, ChatGPT — the same files work across tools.
-                            You adapt the loading mechanism, not the data.
+                            Frontmatter declares types. YAML schemas and `tools/lint.py` enforce required
+                            fields, path semantics, dates, predicates, wikilinks, and contradictions.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Tested in daily use</h3>
+                        <h3>Bi-temporal by default</h3>
                         <p>
-                            This came from actual work — writing, software, personal context, long-running
-                            projects. The structure reflects what survived contact with reality.
+                            Facts distinguish when something is true in the world from when it was recorded,
+                            preserving temporal context without a graph engine.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Decisions, not just state</h3>
+                        <h3>Query with boring tools</h3>
                         <p>
-                            The system stores the rationale behind changes. Future sessions get the "why",
-                            not just the latest snapshot.
+                            Paths, frontmatter, `rg`, `yq`, and `tools/query.sh` cover the personal-context
+                            scale this system is designed for.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>OS-inspired memory hierarchy</h3>
+                        <h3>Git as audit log</h3>
                         <p>
-                            Three tiers — always-on identity, a mutable working context that the AI rewrites
-                            each session, and reference files loaded on demand. Inspired by
-                            <a href="https://research.memgpt.ai" target="_blank" rel="noreferrer">MemGPT</a>, implemented in plain text.
+                            Every memory change is visible in diffs and history. Generated views make derived
+                            state reviewable instead of hidden in a service.
                         </p>
                     </article>
                     <article class="feature-card">
-                        <h3>Extensible via plugins</h3>
+                        <h3>Additive migration</h3>
                         <p>
-                            The repo includes examples for packaging workflows as installable commands
-                            and skills, for tools that support them.
-                        </p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Reactive triggers and modes</h3>
-                        <p>
-                            Keyword-activated trigger tables tell the AI which files to load and which
-                            interaction mode to use. Inspired by
-                            <a href="https://github.com/kitfoxs/open-her-os" target="_blank" rel="noreferrer">Open-Her OS</a>
-                            lorebook, implemented as Markdown tables.
+                            Existing vaults can adopt v3 gradually: add schemas and tools, write new facts
+                            atomically, and backfill durable records as they become useful.
                         </p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section id="compatibility" class="section section-dark">
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">Compatibility</p>
-                    <h2>Same files, different tools.</h2>
+                    <h2>Same memory, different agents.</h2>
                 </div>
 
                 <div class="compatibility-grid">
                     <article class="compat-card">
                         <h3>Claude Code</h3>
-                        <p>Reads <code>CLAUDE.md</code> natively. Best integration out of the box.</p>
+                        <p>Reads <code>CLAUDE.md</code> natively and can follow the v3 protocol in the vault.</p>
                     </article>
                     <article class="compat-card">
                         <h3>GitHub Copilot</h3>
-                        <p>Uses <code>COPILOT.md</code> and workspace context. Plugin flows available.</p>
+                        <p>Use <code>COPILOT.md</code>, repo instructions, and operation envelopes for proposed writes.</p>
                     </article>
                     <article class="compat-card">
-                        <h3>ChatGPT / Claude.ai</h3>
-                        <p>Attach or paste the relevant files when starting a session.</p>
+                        <h3>Anthropic Memory Tool</h3>
+                        <p>Map <code>memory/</code> to <code>/memories</code>: facts, events, decisions, insights, views, and inbox.</p>
+                    </article>
+                    <article class="compat-card">
+                        <h3>Obsidian Agent Skills</h3>
+                        <p>Pair the protocol with Obsidian-aware skills for frontmatter, wikilinks, and vault conventions.</p>
                     </article>
                     <article class="compat-card">
                         <h3>Cursor and others</h3>
-                        <p>Adapt the files to each tool's context mechanism. The data doesn't change.</p>
+                        <p>Adapt the loading mechanism. The data stays as Markdown files in your vault.</p>
                     </article>
                 </div>
             </div>
@@ -421,43 +475,43 @@ headings + companion CSV files for spectral data.
                     <article class="honest-card honest-card-yes">
                         <h3>Included</h3>
                         <ul>
-                            <li>A folder structure for persistent context across AI sessions</li>
-                            <li>File templates for projects, people, decisions, and vocabulary</li>
-                            <li>Loading rules so the AI reads selectively, not everything</li>
-                            <li>Maintenance routines to keep context accurate over time</li>
+                            <li>Atomic semantic facts with stable IDs and source provenance</li>
+                            <li>Append-only episodic events for session history</li>
+                            <li>Generated views for agent reads and operational diagnostics</li>
+                            <li>Portable lint, query, operation, and compaction scripts</li>
+                            <li>Cooperative write flow with proposed operations and applied receipts</li>
                         </ul>
                     </article>
 
                     <article class="honest-card honest-card-no">
                         <h3>Not included</h3>
                         <ul>
-                            <li>Fully automatic memory — the AI proposes updates, you approve them</li>
-                            <li>Guaranteed behavior — AI tools vary; the context is consistent</li>
-                            <li>A product — this is a system you run yourself</li>
-                            <li>Magic — it's structured text, and that's enough</li>
+                            <li>A database, vector store, graph engine, daemon, or hosted memory API</li>
+                            <li>Transactional guarantees for distributed multi-agent workloads</li>
+                            <li>Automatic forgetting in the background; decay is a review ritual</li>
+                            <li>Enterprise-scale retrieval over millions of records</li>
+                            <li>A black box that decides what you remember</li>
                         </ul>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section id="migration" class="section">
             <div class="container cta-panel">
                 <div>
                     <p class="eyebrow">Get started</p>
-                    <h2>Read the guide, adapt the structure, start using it.</h2>
+                    <h2>Clone the reference vault, run the linter, inspect the views.</h2>
                     <p>
-                        The whole system is in the repo. Fork it, copy what works,
-                        change what doesn't. <strong>This is a foundation to build upon — there is no single
-                        correct method.</strong> Adapt it to your workflow, ignore what doesn't fit, build something better.
-                        It's Markdown — you'll figure it out.
+                        The stable v3.0 core is ready to use. The v3.1 hardening additions are already in
+                        the reference implementation for cooperative agent workflows.
                     </p>
                 </div>
                 <div class="cta-actions">
-                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/guide.md" target="_blank" rel="noreferrer">Read guide</a>
-                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/minimal-vault" target="_blank" rel="noreferrer">See example vault</a>
-                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/plugin-guide.md" target="_blank" rel="noreferrer">Plugin guide</a>
-                    <a class="button button-tertiary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub repo</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">Read SPEC v3</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
+                    <a class="button button-secondary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/migration-v3.md" target="_blank" rel="noreferrer">Migration checklist</a>
+                    <a class="button button-tertiary" href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
                     <a class="button button-primary" href="https://buymeacoffee.com/jrcruciani" target="_blank" rel="noreferrer">🍕 Buy me a pizza</a>
                 </div>
             </div>
@@ -472,30 +526,31 @@ headings + companion CSV files for spectral data.
 
                 <div class="faq-list">
                     <details class="faq-item">
-                        <summary>Do I actually need Obsidian?</summary>
-                        <p>No. The system is Markdown files in folders — any text editor works. Obsidian is where this was built and where it works best (wikilinks, graph view, frontmatter), but it's not a dependency.</p>
+                        <summary>Is this still just Markdown?</summary>
+                        <p>Yes. The source of truth is still files in your vault: Markdown, YAML frontmatter, generated Markdown views, and small scripts that travel with the vault.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Is v3.1 a database in disguise?</summary>
+                        <p>No. v3.1 adds operation envelopes, advisory claims, precondition hashes, and receipts. Those make cooperative file workflows safer, but they do not add SQL, transactions, embeddings, a daemon, or a remote service.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How do multiple agents write safely?</summary>
+                        <p>Agents propose changes under their own inbox folder. The compactor validates the envelope, checks preconditions, applies the change, rebuilds views, and records an applied receipt. Conflicts stay visible instead of being silently merged.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do I need v3.1 if the stable v3.0 core is enough?</summary>
+                        <p>No. v3.1 is additive hardening for cooperative agents. If one human and one agent update the vault manually, the stable v3.0 core can be enough.</p>
                     </details>
                     <details class="faq-item">
                         <summary>Does this only work with Claude?</summary>
-                        <p>Claude Code has the best native integration, but the files work with any AI that can read them. The guide covers multiple tools.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Will the AI remember everything automatically?</summary>
-                        <p>It maintains the wiki — you direct it. When you add a source, the AI processes it into wiki pages. When a conversation produces a valuable insight, it proposes filing it. You approve what stays. It's collaborative, not automatic.</p>
+                        <p>No. Claude Code has a strong native file convention, but the protocol is tool-neutral. Copilot, Cursor, local agents, and any AI that can read files can use the same vault.</p>
                     </details>
                     <details class="faq-item">
                         <summary>Why not use a vector database or a dedicated memory product?</summary>
                         <p>
-                            Different layer. A vector database is good for semantic search over thousands of documents.
-                            This system handles the 50–500 files that define <em>who you are</em> — identity, preferences,
-                            active projects, people, decisions. That kind of curated personal context doesn't need
-                            embeddings; it needs structure and transparency.
-                        </p>
-                        <p>
-                            With Markdown you get full visibility into what the AI "knows", version control via git,
-                            zero infrastructure, and portability across any AI tool that reads text. A vector store
-                            gives you none of that. If you're already running RAG for other reasons, this system
-                            complements it — it's the personal layer that RAG is bad at.
+                            Different layer. Vector and graph systems are strong for large retrieval problems.
+                            This system handles curated personal and project context where transparency,
+                            ownership, auditability, and portability matter more than managed infrastructure.
                         </p>
                     </details>
                 </div>
@@ -506,20 +561,15 @@ headings + companion CSV files for spectral data.
     <footer class="site-footer">
         <div class="container footer-grid">
             <div>
-                <strong>Obsidian Memory for AI</strong> <span style="opacity:.5">v2.0</span>
-                <p>Structured context for AI assistants. Plain Markdown, open source.</p>
-                <p style="font-size:.85em;opacity:.7;margin-top:.5em">
-                    Inspired by <a href="https://research.memgpt.ai" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">MemGPT</a>,
-                    <a href="https://github.com/vineetkishore01/Chetna" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">Chetna</a>,
-                    <a href="https://github.com/kitfoxs/open-her-os" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">Open-Her OS</a>, and
-                    <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:underline">Andrej Karpathy</a>'s LLM wiki pattern.
-                </p>
+                <strong>Obsidian Memory for AI</strong>
+                <p>Atomic Markdown Memory for AI agents. Plain files, typed records, open source.</p>
             </div>
             <div class="footer-links">
                 <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/guide.md" target="_blank" rel="noreferrer">Guide</a>
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
-                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/plugin-guide.md" target="_blank" rel="noreferrer">Plugin guide</a>
+                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/SPEC-v3.md" target="_blank" rel="noreferrer">SPEC v3</a>
+                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/tree/main/examples/v3-minimal-vault" target="_blank" rel="noreferrer">Example vault</a>
+                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/automation-guide.md" target="_blank" rel="noreferrer">Automation</a>
+                <a href="https://github.com/Jrcruciani/obsidian-memory-for-ai/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
             </div>
         </div>
     </footer>

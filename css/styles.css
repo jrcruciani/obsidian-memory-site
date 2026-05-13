@@ -35,6 +35,7 @@ body {
         linear-gradient(180deg, #0b1020 0%, #090d18 100%);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 a {
@@ -201,6 +202,17 @@ code {
     grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
     gap: 2rem;
     align-items: center;
+}
+
+.hero-grid > *,
+.strip-grid > *,
+.architecture-grid > *,
+.feature-grid > *,
+.compatibility-grid > *,
+.example-grid > *,
+.cta-panel > *,
+.footer-grid > * {
+    min-width: 0;
 }
 
 .eyebrow {
@@ -444,6 +456,12 @@ code {
     gap: 1rem;
 }
 
+.architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
 .step-card,
 .feature-card,
 .compat-card {
@@ -662,6 +680,7 @@ code {
     .cta-panel,
     .compatibility-grid,
     .feature-grid,
+    .architecture-grid,
     .steps-grid,
     .strip-grid,
     .footer-grid {
